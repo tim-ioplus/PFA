@@ -41,7 +41,8 @@ Public Class TransactionCsvRepository
 	End Function
 
 	Public Function Find(searchText As String) As List(Of Transaction) Implements ITransactionRepository.Find
-		Dim result = From t In Transactions Where t.ToString().Contains(searchText)
+		Dim lowerSearchText As String = searchText.ToLower
+		Dim result = From t In Transactions Where t.ToString().ToLower().Contains(lowerSearchText)
 
 		Return result.ToList
 

@@ -16,12 +16,12 @@
 		_resultDataTable = New DataTable
 
 		' add columns
-		_resultDataTable.Columns.Add("IdColumn", GetType(String))
-		_resultDataTable.Columns.Add("ReceiverName", GetType(String))
-		_resultDataTable.Columns.Add("ReceiverIban", GetType(String))
-		_resultDataTable.Columns.Add("TransactionDate", GetType(DateTime))
-		_resultDataTable.Columns.Add("TransactionTopic", GetType(String))
-		_resultDataTable.Columns.Add("TransactionAmount", GetType(Decimal))
+		_resultDataTable.Columns.Add("Nummer", GetType(String))
+		_resultDataTable.Columns.Add("Empfänger Name", GetType(String))
+		_resultDataTable.Columns.Add("Empfänger Iban", GetType(String))
+		_resultDataTable.Columns.Add("Datum", GetType(DateTime))
+		_resultDataTable.Columns.Add("Betreff", GetType(String))
+		_resultDataTable.Columns.Add("Betrag", GetType(Decimal))
 	End Sub
 
 	Public Function List() As DataTable Implements IDataTableAdapter.List

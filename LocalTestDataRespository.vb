@@ -22,9 +22,11 @@
 	End Function
 
 	Public Function Find(ByVal searchtext As String) As List(Of Transaction) Implements ITransactionRepository.Find
-		Dim result = From t In Transactions Where t.ToString().Contains(searchtext)
+		Dim lowerSearchText As String = searchtext.ToLower
+		Dim result = From t In Transactions Where t.ToString().ToLower().Contains(lowerSearchText)
 
-		Return result.ToList
+		Return result
+
 	End Function
 
 End Class

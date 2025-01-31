@@ -35,7 +35,7 @@
 
 		transaction.Topic = splitted(4)
 
-		Dim transactionamounttext = splitted(8).Replace("""", "") '.Replace("-", "")
+		Dim transactionamounttext = splitted(8).Replace("""", "")
 
 		Dim transactionamount As Decimal = 0
 		If Decimal.TryParse(transactionamounttext, transactionamount) Then

@@ -28,79 +28,52 @@ Partial Class Form1
 		tbSearchTransaction = New TextBox()
 		cmbSearchRepository = New ComboBox()
 		dgvTransactions = New DataGridView()
-		dgcIdColumn = New DataGridViewTextBoxColumn()
-		dgcReceiverName = New DataGridViewTextBoxColumn()
-		dgcReceiverIban = New DataGridViewTextBoxColumn()
-		dgcTransactionDate = New DataGridViewTextBoxColumn()
-		dgcTransactionTopic = New DataGridViewTextBoxColumn()
-		dgcTransactionAmount = New DataGridViewTextBoxColumn()
+		btnSearch = New Button()
+		btnCancel = New Button()
 
 		CType(dgvTransactions, ComponentModel.ISupportInitialize).BeginInit()
 		SuspendLayout()
+
 		' 
 		' tbSearchTransaction
 		' 
 		tbSearchTransaction.Location = New Point(12, 12)
 		tbSearchTransaction.Name = "tbSearchTransaction"
-		tbSearchTransaction.Size = New Size(450, 23)
+		tbSearchTransaction.Size = New Size(400, 23)
 		tbSearchTransaction.TabIndex = 0
 		'
 		' cmbSearchRepository
 		'
-		cmbSearchRepository.Location = New Point(525, 12)
+		cmbSearchRepository.Location = New Point(425, 12)
 		cmbSearchRepository.Name = "cmbSearchRepository"
 		cmbSearchRepository.Size = New Size(100, 23)
 		cmbSearchRepository.TabIndex = 0
 		cmbSearchRepository.DropDownWidth = 100
 		cmbSearchRepository.Items.AddRange(New Object() {RepositoryType.Csv, RepositoryType.LocalTestData, RepositoryType.Sql})
+		'
+		' btnSearch
+		'
+		btnSearch.Location = New Point(530, 12)
+		btnSearch.Name = "cmbSearchRepository"
+		btnSearch.Size = New Size(100, 23)
+		btnSearch.Text = "Suchen"
+		btnSearch.TabIndex = 0
+		'
+		' btnCancel
+		'
+		btnCancel.Location = New Point(635, 12)
+		btnCancel.Name = "cmbSearchRepository"
+		btnCancel.Size = New Size(23, 23)
+		btnCancel.Text = "X"
+		btnCancel.TabIndex = 0
 		' 
 		' dgvTransactions
 		' 
 		dgvTransactions.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-		'dgvTransactions.Columns.AddRange(New DataGridViewColumn() {dgcIdColumn, dgcReceiverName, dgcReceiverIban, dgcTransactionDate, dgcTransactionTopic, dgcTransactionAmount})
 		dgvTransactions.Location = New Point(12, 53)
 		dgvTransactions.Name = "dgvTransactions"
 		dgvTransactions.Size = New Size(643, 385)
 		dgvTransactions.TabIndex = 1
-		' 
-		' dgcIdColumn
-		' 
-		DataGridViewCellStyle1.NullValue = Nothing
-		dgcIdColumn.DefaultCellStyle = DataGridViewCellStyle1
-		dgcIdColumn.HeaderText = "Id"
-		dgcIdColumn.Name = "dgcIdColumn"
-		' 
-		' dgcReceiverName
-		' 
-		dgcReceiverName.HeaderText = "Empfänger Name"
-		dgcReceiverName.Name = "dgcReceiverName"
-		dgcReceiverName.ToolTipText = "defined in designer"
-		' 
-		' dgcReceiverIban
-		' 
-		dgcReceiverIban.HeaderText = "Iban"
-		dgcReceiverIban.Name = "dgcReceiverIban"
-		' 
-		' dgcTransactionDate
-		' 
-		DataGridViewCellStyle2.Format = "d"
-		DataGridViewCellStyle2.NullValue = Nothing
-		dgcTransactionDate.DefaultCellStyle = DataGridViewCellStyle2
-		dgcTransactionDate.HeaderText = "Wertstellung"
-		dgcTransactionDate.Name = "dgcTransactionDate"
-		' 
-		' dgcTransactionTopic
-		' 
-		dgcTransactionTopic.HeaderText = "Betreff"
-		dgcTransactionTopic.Name = "dgcTransactionTopic"
-		' 
-		' dgcTransactionAmount
-		' 
-		DataGridViewCellStyle3.Format = "C2"
-		DataGridViewCellStyle3.NullValue = Nothing
-		dgcTransactionAmount.DefaultCellStyle = DataGridViewCellStyle3
-		dgcTransactionAmount.HeaderText = "Betrag"
-		dgcTransactionAmount.Name = "dgcTransactionAmount"
 		' 
 		' Form1
 		' 
@@ -110,10 +83,14 @@ Partial Class Form1
 		Controls.Add(dgvTransactions)
 		Controls.Add(cmbSearchRepository)
 		Controls.Add(tbSearchTransaction)
+		Controls.Add(btnSearch)
+		Controls.Add(btnCancel)
 		Name = "Form1"
 		Text = "Form1"
 		AddHandler tbSearchTransaction.TextChanged, New EventHandler(AddressOf TbSearchTransaction_TextChanged)
 		AddHandler cmbSearchRepository.SelectedIndexChanged, New EventHandler(AddressOf cbSearchTestRepository_SelectedIndexChanged)
+		AddHandler btnSearch.Click, New EventHandler(AddressOf BtnSearch_Click)
+		AddHandler btnCancel.Click, New EventHandler(AddressOf BtnCancel_Click)
 
 		CType(dgvTransactions, ComponentModel.ISupportInitialize).EndInit()
 		ResumeLayout(False)
@@ -125,12 +102,8 @@ Partial Class Form1
 	Public WithEvents tbSearchTransaction As TextBox
 	Public WithEvents cmbSearchRepository As ComboBox
 	Public WithEvents dgvTransactions As DataGridView
-	Public WithEvents dgcIdColumn As DataGridViewTextBoxColumn
-	Public WithEvents dgcReceiverName As DataGridViewTextBoxColumn
-	Public WithEvents dgcReceiverIban As DataGridViewTextBoxColumn
-	Public WithEvents dgcTransactionDate As DataGridViewTextBoxColumn
-	Public WithEvents dgcTransactionTopic As DataGridViewTextBoxColumn
-	Public WithEvents dgcTransactionAmount As DataGridViewTextBoxColumn
+	Public WithEvents btnSearch As Button
+	Public WithEvents btnCancel As Button
 
 End Class
 
