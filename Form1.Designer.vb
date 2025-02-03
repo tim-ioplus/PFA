@@ -22,88 +22,84 @@ Partial Class Form1
 	'Do not modify it using the code editor.
 	<System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
-		Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
-		Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
-		Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
-		tbSearchTransaction = New TextBox()
-		cmbSearchRepository = New ComboBox()
-		dgvTransactions = New DataGridView()
-		btnSearch = New Button()
-		btnCancel = New Button()
-
-		CType(dgvTransactions, ComponentModel.ISupportInitialize).BeginInit()
+		TabControl1 = New TabControl()
+		tbBudgetOverview = New TabPage()
+		tbTransactionOverview = New TabPage()
+		tbBudgetsConfiguration = New TabPage()
+		tbDataImport = New TabPage()
+		TabControl1.SuspendLayout()
 		SuspendLayout()
-
 		' 
-		' tbSearchTransaction
+		' TabControl1
 		' 
-		tbSearchTransaction.Location = New Point(12, 12)
-		tbSearchTransaction.Name = "tbSearchTransaction"
-		tbSearchTransaction.Size = New Size(400, 23)
-		tbSearchTransaction.TabIndex = 0
-		'
-		' cmbSearchRepository
-		'
-		cmbSearchRepository.Location = New Point(425, 12)
-		cmbSearchRepository.Name = "cmbSearchRepository"
-		cmbSearchRepository.Size = New Size(100, 23)
-		cmbSearchRepository.TabIndex = 0
-		cmbSearchRepository.DropDownWidth = 100
-		cmbSearchRepository.Items.AddRange(New Object() {RepositoryType.Csv, RepositoryType.LocalTestData, RepositoryType.Sql})
-		'
-		' btnSearch
-		'
-		btnSearch.Location = New Point(530, 12)
-		btnSearch.Name = "cmbSearchRepository"
-		btnSearch.Size = New Size(100, 23)
-		btnSearch.Text = "Suchen"
-		btnSearch.TabIndex = 0
-		'
-		' btnCancel
-		'
-		btnCancel.Location = New Point(635, 12)
-		btnCancel.Name = "cmbSearchRepository"
-		btnCancel.Size = New Size(23, 23)
-		btnCancel.Text = "X"
-		btnCancel.TabIndex = 0
+		TabControl1.Controls.Add(tbBudgetOverview)
+		TabControl1.Controls.Add(tbTransactionOverview)
+		TabControl1.Controls.Add(tbBudgetsConfiguration)
+		TabControl1.Controls.Add(tbDataImport)
+		TabControl1.Location = New Point(3, 3)
+		TabControl1.Name = "TabControl1"
+		TabControl1.SelectedIndex = 0
+		TabControl1.Size = New Size(833, 542)
+		TabControl1.TabIndex = 0
 		' 
-		' dgvTransactions
+		' TabPage1
 		' 
-		dgvTransactions.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-		dgvTransactions.Location = New Point(12, 53)
-		dgvTransactions.Name = "dgvTransactions"
-		dgvTransactions.Size = New Size(643, 385)
-		dgvTransactions.TabIndex = 1
+		tbBudgetOverview.Location = New Point(4, 24)
+		tbBudgetOverview.Name = "TabPage1"
+		tbBudgetOverview.Padding = New Padding(3)
+		tbBudgetOverview.Size = New Size(825, 514)
+		tbBudgetOverview.TabIndex = 0
+		tbBudgetOverview.Text = "Übersicht"
+		tbBudgetOverview.UseVisualStyleBackColor = True
+		' 
+		' TabPage2
+		' 
+		tbTransactionOverview.Location = New Point(4, 24)
+		tbTransactionOverview.Name = "TabPage2"
+		tbTransactionOverview.Padding = New Padding(3)
+		tbTransactionOverview.Size = New Size(644, 407)
+		tbTransactionOverview.TabIndex = 1
+		tbTransactionOverview.Text = "Transaktionen"
+		tbTransactionOverview.UseVisualStyleBackColor = True
+		' 
+		' TabPage3
+		' 
+		tbBudgetsConfiguration.Location = New Point(4, 24)
+		tbBudgetsConfiguration.Name = "TabPage3"
+		tbBudgetsConfiguration.Padding = New Padding(3)
+		tbBudgetsConfiguration.Size = New Size(644, 407)
+		tbBudgetsConfiguration.TabIndex = 2
+		tbBudgetsConfiguration.Text = "Budgets"
+		tbBudgetsConfiguration.UseVisualStyleBackColor = True
+		' 
+		' TabPage4
+		' 
+		tbDataImport.Location = New Point(4, 24)
+		tbDataImport.Name = "TabPage4"
+		tbDataImport.Padding = New Padding(3)
+		tbDataImport.Size = New Size(644, 407)
+		tbDataImport.TabIndex = 3
+		tbDataImport.Text = "Import"
+		tbDataImport.UseVisualStyleBackColor = True
 		' 
 		' Form1
 		' 
 		AutoScaleDimensions = New SizeF(7.0F, 15.0F)
 		AutoScaleMode = AutoScaleMode.Font
-		ClientSize = New Size(667, 450)
-		Controls.Add(dgvTransactions)
-		Controls.Add(cmbSearchRepository)
-		Controls.Add(tbSearchTransaction)
-		Controls.Add(btnSearch)
-		Controls.Add(btnCancel)
+		ClientSize = New Size(838, 547)
+		Controls.Add(TabControl1)
 		Name = "Form1"
 		Text = "Form1"
-		AddHandler tbSearchTransaction.TextChanged, New EventHandler(AddressOf TbSearchTransaction_TextChanged)
-		AddHandler cmbSearchRepository.SelectedIndexChanged, New EventHandler(AddressOf cbSearchTestRepository_SelectedIndexChanged)
-		AddHandler btnSearch.Click, New EventHandler(AddressOf BtnSearch_Click)
-		AddHandler btnCancel.Click, New EventHandler(AddressOf BtnCancel_Click)
-
-		CType(dgvTransactions, ComponentModel.ISupportInitialize).EndInit()
+		TabControl1.ResumeLayout(False)
 		ResumeLayout(False)
-		PerformLayout()
 
 	End Sub
 
-
-	Public WithEvents tbSearchTransaction As TextBox
-	Public WithEvents cmbSearchRepository As ComboBox
-	Public WithEvents dgvTransactions As DataGridView
-	Public WithEvents btnSearch As Button
-	Public WithEvents btnCancel As Button
+	Friend WithEvents TabControl1 As TabControl
+	Friend WithEvents tbBudgetOverview As TabPage
+	Friend WithEvents tbTransactionOverview As TabPage
+	Friend WithEvents tbBudgetsConfiguration As TabPage
+	Friend WithEvents tbDataImport As TabPage
 
 End Class
 

@@ -12,7 +12,8 @@ Public Class TransactionCsvRepository
 
 	Private Sub Hydrate()
 		' dateipfad
-		Dim path As String = "C:\Users\T14\Documents\GitHub\PFApp\data.csv"
+		Dim path As String = "C:\Users\T14\Documents\GitHub\PFA\Data\data.CSV"
+
 		' datei existriert
 		Dim linecount As Integer = 0
 		If File.Exists(path) Then

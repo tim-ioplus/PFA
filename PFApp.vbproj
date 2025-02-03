@@ -27,14 +27,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Data\data.CSV">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Data\Repositories\" />
   </ItemGroup>
 
 </Project>
